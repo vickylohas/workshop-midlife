@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>重塑下半場 — 中年女性智慧工作坊</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FAF6F0;
+      --warm-white: #FDF9F4;
+      --blush: #E8C4A8;
+      --terracotta: #C4714A;
+      --deep-rose: #9B4F5C;
+      --burgundy: #6B2737;
+      --sage: #8BA888;
+      --dark-sage: #4A6B48;
+      --charcoal: #2C2C2C;
+      --mid-gray: #6B6B6B;
+      --light-gray: #E8E0D8;
+      --gold: #C9963B;
+      --gold-light: #F0D49A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(250,246,240,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196,113,74,0.15);
+    }
+    .nav-logo {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      color: var(--burgundy);
+      letter-spacing: 0.15em;
+      font-weight: 600;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--mid-gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-cta {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      background: var(--terracotta);
+      color: #fff;
+      padding: 0.6rem 1.6rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .nav-cta:hover { background: var(--burgundy); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%; right: -5%;
+      width: 55%;
+      height: 110%;
+      background: radial-gradient(ellipse at 60% 40%, 
+        rgba(232,196,168,0.35) 0%, 
+        rgba(196,113,74,0.1) 50%, 
+        transparent 75%);
+      z-index: 0;
+    }
+    .hero-text { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--terracotta);
+      border: 1px solid var(--terracotta);
+      padding: 0.35rem 1rem;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+      font-family: 'Playfair Display', serif;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--mid-gray);
+      line-height: 1.75;
+      margin: 1.5rem 0 2.5rem;
+      max-width: 520px;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .hero-meta-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--mid-gray);
+      text-transform: uppercase;
+    }
+    .hero-meta-value {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      animation: fadeUp 0.8s 0.6s ease both;
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: #fff;
+      padding: 1rem 2.5rem;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--burgundy); transform: translateY(-2px); }
+    .btn-secondary {
+      color: var(--mid-gray);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1.2s 0.3s ease both;
+    }
+    .hero-circle-wrap {
+      position: relative;
+      width: 420px;
+      height: 420px;
+    }
+    .hero-circle {
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blush) 0%, var(--terracotta) 60%, var(--burgundy) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+    }
+    .hero-circle-inner {
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+    }
+    .hero-circle-inner .big-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 400;
+      line-height: 1;
+      opacity: 0.95;
+    }
+    .hero-circle-inner .circle-label {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      opacity: 0.85;
+      margin-top: 0.5rem;
+    }
+    .floating-tag {
+      position: absolute;
+      background: #fff;
+      padding: 0.7rem 1.2rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--charcoal);
+      border-left: 3px solid var(--terracotta);
+      white-space: nowrap;
+    }
+    .floating-tag.t1 { top: 15%; left: -10%; animation: float 4s ease-in-out infinite; }
+    .floating-tag.t2 { bottom: 20%; right: -5%; animation: float 4s 1.5s ease-in-out infinite; }
+    .floating-tag.t3 { top: 65%; left: -15%; animation: float 4s 0.8s ease-in-out infinite; }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+    .section-title strong { font-weight: 700; color: var(--terracotta); }
+
+    /* ─── PROBLEM BAND ─── */
+    .problem-band {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 5rem 4rem;
+    }
+    .problem-band .section-label { color: var(--blush); }
+    .problem-band .section-title { color: #fff; }
+    .problem-band p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.72);
+      max-width: 760px;
+      margin-bottom: 1.2rem;
+    }
+    .problem-band p em {
+      color: var(--blush);
+      font-style: italic;
+    }
+    .problem-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin: 2.5rem 0;
+      border-left: 2px solid var(--terracotta);
+      padding-left: 2rem;
+    }
+    .problem-questions p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      margin: 0;
+    }
+
+    /* ─── WHAT IS ─── */
+    .what-is {
+      background: var(--warm-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .what-is-text p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--mid-gray);
+      margin-bottom: 1.2rem;
+    }
+    .outcomes {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .outcome-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .outcome-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(196,113,74,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .outcome-icon svg { width: 14px; height: 14px; stroke: var(--terracotta); }
+    .outcome-item p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--charcoal);
+      margin: 0;
+    }
+    .what-is-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .vis-card {
+      background: linear-gradient(135deg, rgba(232,196,168,0.3), rgba(196,113,74,0.15));
+      padding: 1.8rem 1.5rem;
+      border-top: 3px solid var(--terracotta);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .vis-card:nth-child(2) { background: linear-gradient(135deg, rgba(139,168,136,0.2), rgba(74,107,72,0.1)); border-top-color: var(--sage); }
+    .vis-card:nth-child(3) { background: linear-gradient(135deg, rgba(155,79,92,0.15), rgba(107,39,55,0.1)); border-top-color: var(--deep-rose); }
+    .vis-card:nth-child(4) { background: linear-gradient(135deg, rgba(201,150,59,0.2), rgba(240,212,154,0.2)); border-top-color: var(--gold); }
+    .vis-card-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--terracotta);
+      font-weight: 400;
+    }
+    .vis-card:nth-child(2) .vis-card-num { color: var(--dark-sage); }
+    .vis-card:nth-child(3) .vis-card-num { color: var(--deep-rose); }
+    .vis-card:nth-child(4) .vis-card-num { color: var(--gold); }
+    .vis-card-label {
+      font-size: 0.82rem;
+      color: var(--mid-gray);
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+    }
+
+    /* ─── CURRICULUM ─── */
+    .curriculum {
+      background: var(--cream);
+    }
+    .curriculum-header {
+      max-width: 680px;
+      margin-bottom: 4rem;
+    }
+    .curriculum-header p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--mid-gray);
+    }
+    .weeks-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .week-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0;
+      border-top: 1px solid var(--light-gray);
+      padding: 2rem 0;
+      transition: background 0.3s;
+      cursor: default;
+    }
+    .week-item:last-child { border-bottom: 1px solid var(--light-gray); }
+    .week-num-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 0.2rem;
+    }
+    .week-badge {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--terracotta);
+      text-transform: uppercase;
+    }
+    .week-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--light-gray);
+      line-height: 1;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+    .week-item:hover .week-num { color: var(--blush); }
+    .week-content { padding: 0 0 0 1rem; }
+    .week-date {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--mid-gray);
+      margin-bottom: 0.5rem;
+    }
+    .week-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.8rem;
+    }
+    .week-desc {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--mid-gray);
+      max-width: 700px;
+    }
+
+    /* ─── FACULTY ─── */
+    .faculty {
+      background: var(--warm-white);
+    }
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .faculty-card {
+      background: #fff;
+      padding: 2rem;
+      position: relative;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .faculty-card:hover { border-bottom-color: var(--terracotta); transform: translateY(-4px); }
+    .faculty-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blush), var(--terracotta));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+    .faculty-card h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      margin-bottom: 0.3rem;
+    }
+    .faculty-card .role {
+      font-size: 0.75rem;
+      color: var(--terracotta);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.8rem;
+    }
+    .faculty-card p {
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: var(--mid-gray);
+    }
+    .faculty-card:nth-child(2) .faculty-avatar { background: linear-gradient(135deg, #b8d4b6, var(--dark-sage)); }
+    .faculty-card:nth-child(3) .faculty-avatar { background: linear-gradient(135deg, #d4a8b0, var(--deep-rose)); }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials {
+      background: var(--burgundy);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonials::before {
+      content: '\201C';
+      position: absolute;
+      top: -2rem; left: 3rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 20rem;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+    }
+    .testimonials .section-label { color: var(--blush); }
+    .testimonials .section-title { color: #fff; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .testi-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 2rem;
+    }
+    .testi-card p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.82);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    .testi-author {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: var(--blush);
+    }
+
+    /* ─── FOR YOU ─── */
+    .for-you {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .check-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+    .check-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+    .check-item p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--charcoal);
+    }
+    .for-you-visual {
+      background: var(--charcoal);
+      padding: 3rem;
+      position: relative;
+    }
+    .price-box {
+      text-align: center;
+      color: #fff;
+    }
+    .price-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.5rem;
+    }
+    .price-original {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.35);
+      text-decoration: line-through;
+      margin-bottom: 0.2rem;
+    }
+    .price-current {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: #fff;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .price-note {
+      font-size: 0.75rem;
+      color: var(--blush);
+      letter-spacing: 0.08em;
+      margin-bottom: 2rem;
+    }
+    .price-includes {
+      text-align: left;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .price-include-item {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.72);
+    }
+    .price-include-item::before {
+      content: '✓';
+      color: var(--sage);
+      font-weight: bold;
+    }
+    .price-cta {
+      display: block;
+      margin-top: 2rem;
+      background: var(--terracotta);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .price-cta:hover { background: var(--deep-rose); }
+    .guarantee {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+    }
+
+    /* ─── FAQ ─── */
+    .faq {
+      background: var(--warm-white);
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .faq-item { border-top: 1px solid var(--light-gray); padding-top: 1.5rem; }
+    .faq-q {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.8rem;
+    }
+    .faq-a {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--mid-gray);
+    }
+
+    /* ─── CTA FOOTER ─── */
+    .cta-footer {
+      background: linear-gradient(135deg, var(--terracotta), var(--burgundy));
+      color: #fff;
+      text-align: center;
+      padding: 6rem 4rem;
+    }
+    .cta-footer .section-label { color: rgba(255,255,255,0.6); }
+    .cta-footer h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.4;
+    }
+    .cta-footer p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.78);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+    .cta-footer .btn-white {
+      background: #fff;
+      color: var(--terracotta);
+      padding: 1rem 3rem;
+      font-size: 0.88rem;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-footer .btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.45);
+      padding: 3rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+    }
+    footer .logo-footer {
+      font-family: 'Noto Serif TC', serif;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+    footer .footer-links { display: flex; gap: 2rem; }
+    footer .footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    footer .footer-links a:hover { color: var(--blush); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+      .hero-visual { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .what-is, .for-you { grid-template-columns: 1fr; gap: 2.5rem; }
+      .faculty-grid { grid-template-columns: 1fr; }
+      .testi-grid, .faq-grid { grid-template-columns: 1fr; }
+      .what-is-visual { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .problem-band, .cta-footer { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">中年女性協會 × 智慧工作坊</div>
+  <ul class="nav-links">
+    <li><a href="#about">關於工作坊</a></li>
+    <li><a href="#curriculum">課程內容</a></li>
+    <li><a href="#faculty">講師群</a></li>
+    <li><a href="#faq">常見問題</a></li>
+  </ul>
+  <a href="#enroll" class="nav-cta">立即報名</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">中年女性協會 × 限定工作坊</div>
+    <h1>重塑<em>下半場</em><br>設計妳的下一章</h1>
+    <p class="hero-subtitle">
+      四週深度探索，幫助妳在人生中場重新找回身分認同、內在渴望與前進的方向——完全按照妳自己的節奏。
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">日期</span>
+        <span class="hero-meta-value">2025年9月6日 — 9月27日</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">形式</span>
+        <span class="hero-meta-value">線上 + 線下小組</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">名額</span>
+        <span class="hero-meta-value">限招 30 位</span>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#enroll" class="btn-primary">立即報名 →</a>
+      <span class="btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">了解更多</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-circle-wrap">
+      <div class="hero-circle">
+        <div class="hero-circle-inner">
+          <div class="big-number">四</div>
+          <div class="circle-label">週的蛻變旅程</div>
+        </div>
+      </div>
+      <div class="floating-tag t1">🌸 重新認識自己</div>
+      <div class="floating-tag t2">✦ 社群陪伴支持</div>
+      <div class="floating-tag t3">💡 找到新的方向</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM BAND -->
+<div class="problem-band" id="about">
+  <div class="reveal">
+    <div class="section-label">妳是否也有這樣的感受</div>
+    <h2 class="section-title">孩子長大了，職涯暫停了，<strong>妳呢？</strong></h2>
+    <p>
+      人生的某個轉折點來了——也許是孩子離家、工作交接、婚姻變化，或者只是某個安靜的早晨，
+      妳突然意識到：<em>那個為了別人而活的自己，已經運轉了幾十年。那麼，現在的我，又是誰？</em>
+    </p>
+    <p>
+      那種若有所失的感覺，不是妳的錯。這是許多中年女性共同走過的幽谷——
+      曾經意義明確的角色與身分，在某個節點悄悄鬆動。而沒有人告訴妳，接下來怎麼辦。
+    </p>
+    <div class="problem-questions">
+      <p>「我還有什麼是屬於我自己的？」</p>
+      <p>「我還想要什麼？我還能做什麼？」</p>
+      <p>「沒有那個頭銜或角色，我還是誰？」</p>
+    </div>
+    <p>
+      如果妳曾這樣問過自己，妳並不孤單。而且，妳需要的不是答案——妳需要一個<em>過程</em>，
+      一個陪伴妳找回方向的空間。
+    </p>
+  </div>
+</div>
+
+<!-- WHAT IS -->
+<section class="what-is">
+  <div class="what-is-text reveal">
+    <div class="section-label">工作坊簡介</div>
+    <h2 class="section-title">這不是退休規劃，<strong>這是生命重塑</strong></h2>
+    <p>
+      「重塑下半場」是中年女性協會為40至65歲女性精心設計的四週沉浸式工作坊，
+      結合國際實證方法論與在地女性社群的溫度，引導妳走過一段有結構、有陪伴的內在探索旅程。
+    </p>
+    <p>
+      無論妳是剛結束一段職涯、正在轉換人生角色、還是只是隱約感到「不對勁」——
+      這個空間為妳而存在。
+    </p>
+    <div class="outcomes">
+      <div class="outcome-item">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>重新連結真實的自我價值觀與內在渴望</p>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>鬆動對「中年」與「老化」的限制性信念</p>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>探索身體、心靈、關係與貢獻的全方位活力</p>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>建立妳的個人「下半場行動地圖」</p>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>加入一個懂妳的女性社群，不再孤單前行</p>
+      </div>
+    </div>
+  </div>
+  <div class="what-is-visual reveal">
+    <div class="vis-card">
+      <div class="vis-card-num">4</div>
+      <div class="vis-card-label">週深度課程內容<br>終身可重複回顧</div>
+    </div>
+    <div class="vis-card">
+      <div class="vis-card-num">30</div>
+      <div class="vis-card-label">位限額學員<br>真實小班體驗</div>
+    </div>
+    <div class="vis-card">
+      <div class="vis-card-num">4</div>
+      <div class="vis-card-label">場線上直播互動<br>全程錄影回放</div>
+    </div>
+    <div class="vis-card">
+      <div class="vis-card-num">1</div>
+      <div class="vis-card-label">份專屬行動地圖<br>帶走的蛻變成果</div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum" id="curriculum">
+  <div class="curriculum-header reveal">
+    <div class="section-label">課程大綱</div>
+    <h2 class="section-title">四週，<strong>一段有方向的旅程</strong></h2>
+    <p>
+      每週妳將收到精心策劃的影音內容，並與講師和學員們共同進行一次深度直播對話。
+      課程以「由內而外」的邏輯展開——先鬆動舊的框架，再建立新的可能。
+    </p>
+  </div>
+  <div class="weeks-grid reveal">
+    <div class="week-item">
+      <div class="week-num-col">
+        <span class="week-badge">Week</span>
+        <span class="week-num">01</span>
+      </div>
+      <div class="week-content">
+        <div class="week-date">9月6日（六）直播</div>
+        <div class="week-title">轉折：鬆開舊的身分腳本</div>
+        <p class="week-desc">用「初學者心態」打開全新的可能性，重新審視妳對自己中年的想像。我們將一起探索：在那些賦予妳意義的角色之外，真正的妳是誰？本週的引導練習將幫助妳識別那些悄悄限制妳的「人生程式碼」。</p>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-num-col">
+        <span class="week-badge">Week</span>
+        <span class="week-num">02</span>
+      </div>
+      <div class="week-content">
+        <div class="week-date">9月13日（六）直播</div>
+        <div class="week-title">基礎：盤點妳的「成功腳本」</div>
+        <p class="week-desc">誠實審視那些「應該如此」的信念——關於女性、關於成功、關於年齡。妳將全面盤點生活的各個面向：財務、健康、家庭、關係、休閒、貢獻——並開始勾勒屬於妳的理想圖景。</p>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-num-col">
+        <span class="week-badge">Week</span>
+        <span class="week-num">03</span>
+      </div>
+      <div class="week-content">
+        <div class="week-date">9月20日（六）直播</div>
+        <div class="week-title">活力：什麼讓妳真正閃亮？</div>
+        <p class="week-desc">從身體、心靈、關係到精神的多維度活力探索。妳將制定個人的「活力行動計畫」，並做一次老化觀念的深度審視——讓那些束縛妳的思維定式鬆動，迎接前方豐盛的可能性。</p>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-num-col">
+        <span class="week-badge">Week</span>
+        <span class="week-num">04</span>
+      </div>
+      <div class="week-content">
+        <div class="week-date">9月27日（六）直播</div>
+        <div class="week-title">重生：繪製妳的下半場地圖</div>
+        <p class="week-desc">將四週的洞見、渴望與願景整合為一份具體可行的「下半場行動地圖」。包含清晰的時間軸、第一步行動清單，以及如何持續在社群中獲得支持與問責。課程結束，旅程才正要開始。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACULTY -->
+<section class="faculty" id="faculty">
+  <div class="section-label reveal">講師群</div>
+  <h2 class="section-title reveal">引領妳的<strong>智慧嚮導</strong></h2>
+  <div class="faculty-grid">
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar">林</div>
+      <h3>林芳華 博士</h3>
+      <div class="role">首席引導師 · 正向心理學家</div>
+      <p>哈佛大學應用心理學博士，深耕中年女性生命轉型研究逾二十年。她以溫暖而精準的引導，協助數百位女性在人生中場找回力量。著有《中年不是終點》。</p>
+    </div>
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar">陳</div>
+      <h3>陳雅如</h3>
+      <div class="role">生命教練 · 職涯轉型顧問</div>
+      <p>曾任跨國企業高管，50歲時毅然轉型為生命教練，親身走過身分重塑的幽暗與光明。她用自身故事與專業工具，為每位學員提供切實的陪伴與策略。</p>
+    </div>
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar">王</div>
+      <h3>王慧玲</h3>
+      <div class="role">身心整合師 · 活力健康專家</div>
+      <p>整合東方身心哲學與西方健康科學，專注於更年期後女性的全人活力重建。她的引導將幫助妳從身體層面重新感受生命的豐盛與可能。</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-label reveal">學員心聲</div>
+  <h2 class="section-title reveal">她們這樣說</h2>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <p>「我以為自己只是來『找點方向』的，沒想到這四週徹底改變了我看自己的方式。那份行動地圖，我到現在還放在桌上。」</p>
+      <div class="testi-author">— 許雅婷，53歲，前財務主管，台北</div>
+    </div>
+    <div class="testi-card reveal">
+      <p>「最珍貴的是這個社群。同樣在人生中場摸索的女性們彼此真誠分享，讓我第一次覺得——原來我不是一個人。」</p>
+      <div class="testi-author">— 劉淑美，47歲，育有三子的全職媽媽，新竹</div>
+    </div>
+    <div class="testi-card reveal">
+      <p>「林博士說的那句話讓我反覆想了好幾週：『妳不是在失去角色，妳是在獲得自由。』這個工作坊給了我重新出發的勇氣。」</p>
+      <div class="testi-author">— 張美鈴，61歲，退休教師，台中</div>
+    </div>
+    <div class="testi-card reveal">
+      <p>「我本來很抗拒『中年』這個詞，但上完課後，我開始覺得這是人生最有趣的一個章節。感謝中年女性協會打造了這個空間。」</p>
+      <div class="testi-author">— 吳佳穎，44歲，自由工作者，高雄</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR YOU + PRICING -->
+<section class="for-you" id="enroll">
+  <div class="reveal">
+    <div class="section-label">這個工作坊適合妳嗎</div>
+    <h2 class="section-title">如果妳是<strong>這樣的妳</strong></h2>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <p>正在或即將從長期扮演的角色（職場、母職、婚姻）中退場，不確定下一步</p>
+      </div>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <p>有很多「可以做的事」，卻找不到真正想做的方向，感到茫然與選擇困難</p>
+      </div>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <p>不確定離開了那個頭銜或角色之後，自己還是誰</p>
+      </div>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <p>覺得還有很多可以貢獻、可以探索，但缺少清晰的框架與推動力</p>
+      </div>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <p>渴望與真正理解妳的女性們一起走這段路，而不是孤軍奮戰</p>
+      </div>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <p>準備好以嚴肅且溫柔的態度，重新設計屬於自己的下半場</p>
+      </div>
+    </div>
+  </div>
+  <div class="for-you-visual reveal">
+    <div class="price-box">
+      <div class="price-label">工作坊費用</div>
+      <div class="price-original">NT$ 9,800</div>
+      <div class="price-current">NT$ 6,800</div>
+      <div class="price-note">中年女性協會會員早鳥優惠 · 名額有限</div>
+      <div class="price-includes">
+        <div class="price-include-item">四週完整課程內容（終身回放）</div>
+        <div class="price-include-item">四場週六線上直播互動（90分鐘）</div>
+        <div class="price-include-item">個人「下半場行動地圖」工具包</div>
+        <div class="price-include-item">專屬學員線上社群（三個月）</div>
+        <div class="price-include-item">完課後協會校友身分</div>
+      </div>
+      <a href="mailto:workshop@midwomen.org.tw?subject=報名：重塑下半場工作坊" class="price-cta">立即報名 — 把握名額</a>
+      <div class="guarantee">✦ 七天滿意保證 · 不適合全額退款 · 無需理由</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-label reveal">常見問題</div>
+  <h2 class="section-title reveal">妳可能想問的</h2>
+  <div class="faq-grid">
+    <div class="faq-item reveal">
+      <div class="faq-q">我不太會用電腦，能參加線上工作坊嗎？</div>
+      <div class="faq-a">當然可以！只要有手機或平板、穩定的網路連線，就能加入 Zoom 直播。報名後我們會提供詳細的技術說明，並有專人協助解決任何問題。</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">每週需要花多少時間？</div>
+      <div class="faq-a">每週約三至四小時，包含一場九十分鐘的直播、自主觀看影音內容，以及書寫反思練習。課程設計彈性，可配合妳的生活節奏調整。</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">如果不能參加直播，怎麼辦？</div>
+      <div class="faq-a">所有直播均會錄影，並在結束後二十四小時內上傳至學員平台。妳可以隨時回放，並在社群中繼續參與討論。不過，我們鼓勵盡量即時參與，那才是最珍貴的交流時刻。</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">這個工作坊適合幾歲的女性？</div>
+      <div class="faq-a">主要面向40至65歲的女性，但凡是正在經歷人生角色轉換、尋找下一階段方向的女性，不論年齡皆歡迎。最重要的是，妳已準備好認真看待「下一章」的問題。</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">我還在工作，還沒退休，適合參加嗎？</div>
+      <div class="faq-a">非常適合！許多學員在仍在職期間就加入，提前為下一階段做好準備。在轉折發生之前做好內在功課，往往比之後再追趕容易得多。</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">完課後還有什麼支持？</div>
+      <div class="faq-a">完課後妳將正式成為中年女性協會工作坊校友，擁有三個月的專屬線上社群使用權，以及日後協會活動的優先報名資格。這段旅程，不會在最後一堂課結束。</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FOOTER -->
+<section class="cta-footer">
+  <div class="section-label">現在就行動</div>
+  <h2>妳已經等了太久了，<br>是時候把下半場還給自己</h2>
+  <p>名額僅三十位，報名截止日為 2025年8月31日。每一個加入的妳，都值得擁有這段屬於自己的時間。</p>
+  <a href="mailto:workshop@midwomen.org.tw?subject=報名：重塑下半場工作坊" class="btn-white">立即報名工作坊 →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo-footer">中年女性協會 × 重塑下半場工作坊</div>
+  <div class="footer-links">
+    <a href="#">關於協會</a>
+    <a href="#">隱私政策</a>
+    <a href="mailto:workshop@midwomen.org.tw">聯絡我們</a>
+  </div>
+  <div>© 2025 中年女性協會 版權所有</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Stagger reveals in grid
+  document.querySelectorAll('.faculty-grid .reveal, .testi-grid .reveal, .faq-grid .reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 3) * 0.12 + 's';
+  });
+</script>
+
+</body>
+</html>
